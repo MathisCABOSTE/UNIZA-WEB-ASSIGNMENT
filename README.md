@@ -1,104 +1,66 @@
-# PROVIDENCE
+# Providence
 
-## Description
-Providence is a small social media website where users can write articles and react to them by leaving a like.
+![PHP](https://img.shields.io/badge/PHP-86.7%25-777BB4?style=flat&logo=php) ![CSS](https://img.shields.io/badge/CSS-12.7%25-1572B6?style=flat&logo=css3) ![Docker](https://img.shields.io/badge/Docker-0.6%25-2496ED?style=flat&logo=docker)
 
-## How to run it
-`docker-compose` is required.
-To launch the website, type the following command:
-```
-docker-compose up --build
-```
-You can now explore the wesite by visiting http://localhost
+Providence is a lightweight social media platform where users can publish articles, browse content, and react to posts by leaving likes.
 
-![front page of Providence](readme_images/image.png)
+![Front page of Providence](readme_images/image.png)
 
-## Additional info
+## 🚀 Getting Started
 
-### Database password
-To make the database password easier to change we have written it the files `docker-compose.yml` and `config.php`.
+### Prerequisites
+Make sure you have [Docker](https://www.docker.com/) and `docker-compose` installed on your machine.
 
-You can change the database password by editing the `MYSQL_PASSWORD` parameter in the `docker-compose.yml` file and the `$dbpassword` variable in `config.php`.
+### Installation & Running
 
-### Admin account
-The default admin credentials are `admin:admin`.
-The password can be changed in the account settings page.
+1. Clone the repository and navigate into it.
+2. Build and start the Docker containers:
+   ```bash
+   docker-compose up --build
+   ```
+3. Open your browser and visit: [http://localhost](http://localhost)
 
-## Features
+## ⚙️ Configuration & Accounts
 
-### Front page
+### Database Password
+To make the database password easily configurable, it is stored in `docker-compose.yml` and `config.php`. 
+To change the password, you must update:
+- The `MYSQL_PASSWORD` environment variable in `docker-compose.yml`
+- The `$dbpassword` variable in `config.php`
 
-From the front page of Providence, you can search for articles by typing in the search bar or click the `Log In` button to use an account.
+### Admin Account
+The platform comes with a default administrator account:
+- **Username:** `admin`
+- **Password:** `admin`
 
-![front page of Providence](readme_images/image.png)
+*(Note: You can change the password from the account settings page once logged in.)*
 
-### Search
-The search bar allows you to search for articles.
-It will return the articles containing your search term from newest to oldest.
+## ✨ Features
 
-![Search results](readme_images/image-1.png)
+### Browsing & Searching
+- **Front Page:** View the latest posts or log in to interact.
+- **Search:** Find specific articles by entering keywords in the search bar. Results are ordered from newest to oldest.
 
-### Reading articles
-By clicking an article, you can read it.
-If you are logged in, you can also like the article.
+### Reading & Interacting
+- **Articles:** Click on an article to read the full content.
+- **Likes:** Logged-in users can like articles.
+- **Moderation:** Authors and Administrators have the ability to delete articles directly from the reading view.
 
-![Article for testing](readme_images/image-2.png)
+### User Authentication
+- **Log In:** Access your existing account.
+- **Sign Up:** Create a new account. *(Note: Usernames only support lowercase alphanumeric characters and underscores. Duplicate usernames in different cases are not permitted.)*
 
-If you are the author of the article or if you are using an administrator account, the "Delete Article" button will appear.
+### Content Creation
+- **Create New Article:** Logged-in users can write and publish articles effortlessly via the "Create Article" page.
 
-![Delete Article](readme_images/image-11.png)
-
-### Log In page
-The Log In page allows you to connect to your account if you already have one.
-
-![Log In page](readme_images/image-3.png)
-
-If you don't have an account, you can get to the Sign In page by clicking "Create an account".
-
-### Sign In page
-The sign in page allows you to create an account.
-Only lowercase alphanumeric character and underscore are allowed for the username.
-Creating two users with the same username in a different case is not allowed.
-
-![Sign In page](readme_images/image-4.png)
-
-### Article creation
-Once logged in, you will have acess to the "Create New Article" button.
-
-![Create New Article button](readme_images/image-8.png)
-
-This button will lead you to the "Create Article" page where you can write the title of your article and its content.
-
-![Create Article page](readme_images/image-9.png)
-
-When your article is sent, the "Article published successfully!" will appear.
-
-![Article published successfully](readme_images/image-10.png)
-
-### Account Panel
-Once logged in, you will have access to the account panel on the top right of the screen in the front page and in the search results page.
-
-![Account panel](readme_images/image-5.png)
-
-From this pannel, you can access :
-- **My Articles :** The list of the articles created with your account
-- **Liked Articles :** The list of the articles liked by your account
-- **Settings :** The account settings page
-
-### Account Settings
-This page allows you to use all the features of the account panel and to edit your password.
-
-![Account Settings page](readme_images/image-6.png)
-
-If you are logged in as an administrator, you will have access to the `Admin Panel` from this page.
-
-![Accouts Settings page as admin](readme_images/image-7.png)
+### User Dashboard (Account Panel)
+Accessible from the top right of the screen when logged in, giving you quick access to:
+- **My Articles:** Manage and view articles you've authored.
+- **Liked Articles:** View a list of articles you've liked.
+- **Settings:** Change your password and manage account preferences.
 
 ### Admin Panel
-The Admin Panel will show you the list of all users.
-
-![Admin Panel](readme_images/image-12.png)
-
-From here, you can search a user and access to their "Liked Articles" or "Authored Articles" page using the drop down menu.
-
-![User Menu](readme_images/image-13.png)
+Administrators get access to an exclusive **Admin Panel** via the settings page:
+- View a comprehensive list of all registered users.
+- Search for specific users.
+- Access detailed views of any user's "Liked Articles" and "Authored Articles".
